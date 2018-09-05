@@ -1,20 +1,30 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Button from '../../UI/Button/Button';
 
-const orderSummary = (props) => {
-    const ingredientList = Object.keys(props.ingredients)
-    .map(ing => props.ingredients[ing] > 0 ? <li key={ing}><span style={{textTransform: 'capitalize'}}>{ing}</span>: {props.ingredients[ing]}</li> : null)
+class OrderSummary extends Component {
 
-    return(
+
+    componentWillUpdate(){
+        console.log('[OrderSummary] will update')
+    }
+
+    render(){
+        
+        const ingredientList = Object.keys(this.props.ingredients)
+        .map(ing => this.props.ingredients[ing] > 0 ? <li key={ing}><span style={{textTransform: 'capitalize'}}>{ing}</span>: {this.props.ingredients[ing]}</li> : null)
+
+        return(
         <React.Fragment>
             <h3>Your Order</h3>
             <p>A delicious burger with the following ingredients:</p>
             <ul>{ingredientList}</ul>
-            <p>Costing: <strong>${props.price.toFixed(2)}</strong></p>
+            <p>Costing: <strong>${this.props.price.toFixed(2)}</strong></p>
             <p>Continue to checkout?</p>
-            <Button clicked={props.continue} btnType='Success'>Continue</Button>
-            <Button btnType='Danger' clicked={props.cancel}>Cancel</Button>
-        </React.Fragment>);
+            <Button clicked={this.props.continue} btnType='Success'>Continue</Button>
+            <Button btnType='Danger' clicked={this.props.cancel}>Cancel</Button>
+        </React.Fragment>)
+    }
+
 }
 
-export default orderSummary;
+export default OrderSummary;

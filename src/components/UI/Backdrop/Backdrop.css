@@ -18,3 +18,10 @@
     transform: scale(1);
     background-color: rgba(0,0,0,0.5);
 }
+
+.Backdrop_open{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    background-color: rgba(0,0,0,0.5);
+}

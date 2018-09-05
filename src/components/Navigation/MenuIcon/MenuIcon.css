@@ -1,7 +1,7 @@
 .MenuIcon{
     width: 30px;
     height: 19px;
-    position: absolute;
+    position: fixed;
     z-index: 600;
     right: 10px;
     top: 18px;
@@ -12,6 +12,10 @@
             display: none;
         }
     }
+
+.MenuIcon:hover{
+    cursor: pointer;
+}
 
 .MenuIcon::before{
     content: "";
@@ -25,7 +29,7 @@
     transition: transform .3s ease-out;
 }
 .MenuIcon__middle{
-    position: absolute;
+    position: relative;
     top: 8px;
     left: 0;
     width: 30px;
